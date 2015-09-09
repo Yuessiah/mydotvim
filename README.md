@@ -1,0 +1,2 @@
+# mydotvim
+~/.vim
