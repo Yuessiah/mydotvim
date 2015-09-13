@@ -37,6 +37,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Mapping for something~
-nnoremap <silent> <F6> : Tlist <CR>
+nnoremap <silent> <F6> :Tlist<CR>
 set pastetoggle=<C-p>
 nmap <F9> :NERDTreeToggle<CR>
