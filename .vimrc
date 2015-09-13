@@ -29,8 +29,7 @@ let g:solarized_termtrans=1
 colorscheme solarized
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{c,cpp,java,py} :%s/\v\s*$//g
-
+autocmd BufWritePre *.{c,cpp,java,py} :%s/\s\+$//e
 " run the Flake8 check every time you write a Python file
 autocmd BufWritePost *.py call Flake8()
 
@@ -41,5 +40,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Mapping for something~
 nnoremap <silent> <F6> : Tlist <CR>
-set pastetoggle=<S-C-p>
+set pastetoggle=<C-p>
 nmap <F9> :NERDTreeToggle<CR>
