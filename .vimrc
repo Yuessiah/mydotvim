@@ -3,10 +3,8 @@ set mouse=n
 set number
 set smartindent
 set smarttab
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2 tabstop=2
+autocmd FileType {python,html} set expandtab|set sw=4|set ts=4|set softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets. works like it does in bbedit.
