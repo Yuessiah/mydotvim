@@ -28,8 +28,6 @@ colorscheme solarized
 
 " remove trailing whitespace when type :w on normal mode
 autocmd BufWritePre *.{c,cpp,java,py} :%s/\s\+$//e
-" run the Flake8 check every time you write a Python file
-autocmd BufWritePost *.py call Flake8()
 
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
