@@ -38,3 +38,4 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nnoremap <silent> <F6> :Tlist<CR>
 set pastetoggle=<C-p>
 nmap <F9> :NERDTreeToggle<CR>
+noremap <buffer> <F8> :call flake8#Flake8()<CR>
