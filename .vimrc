@@ -4,7 +4,7 @@ set number
 set smartindent
 set smarttab
 set shiftwidth=2 tabstop=2
-set list lcs=tab:\¦\ 
+set list listchars=tab:\¦\ 
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
@@ -16,9 +16,9 @@ set showmode                    " show the current mode
 syntax enable                   " turn syntax highlighting on by default
 
 
-"""""""""""""""""""""""""""""""
-" Magic that can't be removed."
-"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
+" Magic that can't be removed. "
+""""""""""""""""""""""""""""""""
 execute pathogen#infect('~/.vim/bundle/{}')
 filetype plugin indent on
 
@@ -29,15 +29,36 @@ let g:solarized_visibility="low"
 colorscheme solarized
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{c,cpp,java,py} :%s/\s\+$//e
+autocmd BufWritePre *.{c,cpp,java,py,html} :%s/\s\+$//e
+" auto-arrange the whole coding indentation field when read the file into the buffer
+autocmd BufReadPost *.{c,cpp,java,html} :normal ggVG=
 
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Mapping for something~
+"""""""""""""""
+" FUNCTIONS : "
+"""""""""""""""
+
+" pastetoggle is not useful, so I write the Pastee fuction.
+let s:paste_status = 0
+function Pastee()
+	if(s:paste_status == 0)
+		set paste
+		let s:paste_status = 1
+	else
+		set nopaste
+		let s:paste_status = 0
+	endif
+endfunction
+
+""""""""""
+" MAPS : "
+""""""""""
+
 nnoremap <silent> <F6> :Tlist<CR>
-set pastetoggle=<C-p>
-nmap <F9> :NERDTreeToggle<CR>
-noremap <buffer> <F8> :call flake8#Flake8()<CR>
+nmap <silent> <C-S-p> :call Pastee()<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <buffer> <F8> :call flake8#Flake8()<CR>
