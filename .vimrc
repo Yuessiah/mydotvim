@@ -4,7 +4,8 @@ set number
 set smartindent
 set smarttab
 set shiftwidth=2 tabstop=2
-autocmd FileType {python,html} set expandtab|set sw=4|set ts=4|set softtabstop=4
+set list lcs=tab:\¦\ 
+autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets. works like it does in bbedit.
@@ -24,6 +25,7 @@ filetype plugin indent on
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_visibility="low"
 colorscheme solarized
 
 " remove trailing whitespace when type :w on normal mode
