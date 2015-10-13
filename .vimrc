@@ -61,4 +61,4 @@ endfunction
 nnoremap <silent> <F6> :Tlist<CR>
 nmap <silent> <C-S-p> :call Pastee()<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
-nnoremap <buffer> <F8> :call flake8#Flake8()<CR>
+au FileType python map <buffer> <F8> :call Flake8()<CR>
