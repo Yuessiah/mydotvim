@@ -13,7 +13,7 @@ set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
 set showmode                    " show the current mode
-let mapleader="1"            " the <leader> key.
+let mapleader="o"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 
 
@@ -51,3 +51,5 @@ nnoremap <silent> <F6> :Tlist<CR>
 map <silent> <leader>p :setlocal paste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python map <buffer> <F8> :call Flake8()<CR>
+nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
