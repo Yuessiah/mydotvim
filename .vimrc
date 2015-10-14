@@ -13,6 +13,7 @@ set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
 set showmode                    " show the current mode
+let mapleader="1"            " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 
 
@@ -42,23 +43,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " FUNCTIONS : "
 """""""""""""""
 
-" pastetoggle is not useful, so I write the Pastee fuction.
-let s:paste_status = 0
-function Pastee()
-	if(s:paste_status == 0)
-		set paste
-		let s:paste_status = 1
-	else
-		set nopaste
-		let s:paste_status = 0
-	endif
-endfunction
-
 """"""""""
 " MAPS : "
 """"""""""
 
 nnoremap <silent> <F6> :Tlist<CR>
-nmap <silent> <C-S-p> :call Pastee()<CR>
+map <silent> <leader>p :setlocal paste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python map <buffer> <F8> :call Flake8()<CR>
