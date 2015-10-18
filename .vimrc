@@ -13,7 +13,7 @@ set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
 set showmode                    " show the current mode
-let mapleader="o"               " the <leader> key.
+let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 
 
@@ -31,7 +31,7 @@ colorscheme solarized
 
 " remove trailing whitespace when type :w on normal mode
 autocmd BufWritePre *.{c,cpp,java,py,html} :%s/\s\+$//e
-" auto-arrange the whole coding indentation field when read the file into the buffer
+" auto-arrange the whole coding indentation field after reading the file into the buffer
 autocmd BufReadPost *.{c,cpp,java,html} :normal ggVG=
 
 " open a NERDTree automatically when vim starts up if no files were specified
@@ -47,8 +47,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " MAPS : "
 """"""""""
 
-nnoremap <silent> <F6> :Tlist<CR>
-map <silent> <leader>p :setlocal paste!<CR>
+nnoremap <F6> :Tlist<CR>
+map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python map <buffer> <F8> :call Flake8()<CR>
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
