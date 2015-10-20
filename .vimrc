@@ -8,7 +8,7 @@ set list listchars=tab:\¦\
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
-set showmatch                   " automatically show matching brackets. works like it does in bbedit.
+set showmatch                   " automatically show matching brackets.
 set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
@@ -50,6 +50,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nnoremap <F6> :Tlist<CR>
 map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
-au FileType python map <buffer> <F8> :call Flake8()<CR>
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+
+au FileType python nmap <buffer> <F8> :call Flake8()<CR>
+
+au FileType html inoremap < <><LEFT>
+au FileType html inoremap {% {%  %}<LEFT><LEFT><LEFT>
+au FileType html inoremap {{ {{  }}<LEFT><LEFT><LEFT>
