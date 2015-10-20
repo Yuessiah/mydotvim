@@ -16,7 +16,6 @@ set showmode                    " show the current mode
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 
-
 """"""""""""""""""""""""""""""""
 " Magic that can't be removed. "
 """"""""""""""""""""""""""""""""
@@ -55,6 +54,6 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 
 au FileType python nmap <buffer> <F8> :call Flake8()<CR>
 
-au FileType html inoremap < <><LEFT>
-au FileType html inoremap {% {%  %}<LEFT><LEFT><LEFT>
-au FileType html inoremap {{ {{  }}<LEFT><LEFT><LEFT>
+au FileType html,htmljinja inoremap < <><LEFT>
+au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
+au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
