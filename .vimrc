@@ -22,38 +22,47 @@ syntax enable                   " turn syntax highlighting on by default
 execute pathogen#infect('~/.vim/bundle/{}')
 filetype plugin indent on
 
+" some solarized theme settings
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_visibility="low"
 colorscheme solarized
+""""
+
+" some emmet settings
+let g:user_emmet_mode='n'
+let g:user_emmet_install_global=0
+autocmd FileType html,css,htmljinja EmmetInstall
+let g:user_emmet_expandabbr_key='<TAB>'
+""""
 
 " remove trailing whitespace when type :w on normal mode
 autocmd BufWritePre *.{c,cpp,java,py,html} :%s/\s\+$//e
+""""
+
 " auto-arrange the whole coding indentation field after reading the file into the buffer
 autocmd BufReadPost *.{c,cpp,java,html} :normal ggVG=
+""""
 
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+""""
 
-"""""""""""""""
-" FUNCTIONS : "
-"""""""""""""""
+" edit & source vimrc
+nnoremap <leader>ev :vsplit ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+""""
 
-""""""""""
-" MAPS : "
-""""""""""
+" html bracket-completion
+au FileType html,htmljinja inoremap < <><LEFT>
+au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
+au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
+""""
 
 nnoremap <F6> :Tlist<CR>
 map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
-nnoremap <leader>ev :vsplit ~/.vimrc<CR>
-nnoremap <leader>sv :source ~/.vimrc<CR>
-
 au FileType python nmap <buffer> <F8> :call Flake8()<CR>
-
-au FileType html,htmljinja inoremap < <><LEFT>
-au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
-au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
