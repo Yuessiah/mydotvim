@@ -5,6 +5,7 @@ set smartindent
 set smarttab
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ 
+autocmd FileType css set sw=1|set ts=1
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
@@ -31,14 +32,13 @@ colorscheme solarized
 """"
 
 " some emmet settings
-let g:user_emmet_mode='n'
 let g:user_emmet_install_global=0
 autocmd FileType html,css,htmljinja EmmetInstall
-let g:user_emmet_expandabbr_key='<TAB>'
+let g:user_emmet_leader_key='<TAB>'
 """"
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{c,cpp,java,py,html} :%s/\s\+$//e
+autocmd BufWritePre *.{c,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
 " auto-arrange the whole coding indentation field after reading the file into the buffer
@@ -56,13 +56,15 @@ nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 """"
 
-" html bracket-completion
-au FileType html,htmljinja inoremap < <><LEFT>
+" bracket-completion
 au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
+au FileType css inoremap {<CR> {<CR><CR>}<UP><TAB>
+au FileType c,cpp,css inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 """"
 
 nnoremap <F6> :Tlist<CR>
 map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python nmap <buffer> <F8> :call Flake8()<CR>
+au FileType css set nonumber
