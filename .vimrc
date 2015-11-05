@@ -2,12 +2,12 @@
 set mouse=n
 set number
 set smartindent
-set smarttab
+
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ 
 autocmd FileType css set sw=1|set ts=1
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
-set autoindent                  " set auto-indenting on for programming
+set smarttab                    " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
 set ruler                       " show the cursor position all the time
@@ -59,7 +59,7 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " bracket-completion
 au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType css inoremap {<CR> {<CR><CR>}<UP><TAB>
+au FileType c,cpp,css inoremap {<CR> {<CR>}<UP><END><CR>
 au FileType c,cpp,css inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 """"
 
