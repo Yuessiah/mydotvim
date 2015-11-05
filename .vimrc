@@ -2,11 +2,12 @@
 set mouse=n
 set number
 set smarttab
+set smartindent
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ 
 autocmd FileType css set sw=1|set ts=1
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
-set smartindent                 " set auto-indenting on for programming
+set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
 set ruler                       " show the cursor position all the time
