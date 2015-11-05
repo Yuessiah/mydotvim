@@ -1,13 +1,12 @@
 " Setting some decent VIM settings for programming
 set mouse=n
 set number
-set smartindent
-
+set smarttab
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ 
 autocmd FileType css set sw=1|set ts=1
 autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
-set smarttab                    " set auto-indenting on for programming
+set smartindent                 " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
 set ruler                       " show the cursor position all the time
