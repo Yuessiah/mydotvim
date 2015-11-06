@@ -59,8 +59,8 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " bracket-completion
 au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType c,cpp,java,css,javascript inoremap {<CR> {<CR>}<UP><END><CR>
-au FileType c,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
+au FileType c,cpp,java,css,javascript inoremap {<CR> {<END><CR>}<UP><ESC>f{a<CR>
+au FileType c,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><END><SPACE>}<LEFT><LEFT>
 """"
 
 nnoremap <F6> :Tlist<CR>
