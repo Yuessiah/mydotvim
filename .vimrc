@@ -5,8 +5,8 @@ set smarttab
 set smartindent
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ 
-autocmd FileType css set sw=1|set ts=1
-autocmd FileType python set expandtab|set sw=4|set ts=4|set softtabstop=4
+autocmd FileType css setlocal sw=1 ts=1
+autocmd FileType python setlocal expandtab sw=4 softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
@@ -16,12 +16,12 @@ set background=dark             " Use colours that work well on a dark backgroun
 set showmode                    " show the current mode
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
+filetype plugin indent on
 
 """"""""""""""""""""""""""""""""
 " Magic that can't be removed. "
 """"""""""""""""""""""""""""""""
 execute pathogen#infect('~/.vim/bundle/{}')
-filetype plugin indent on
 
 " some solarized theme settings
 set t_Co=256
@@ -59,8 +59,8 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " bracket-completion
 au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType c,cpp,java,css,js inoremap {<CR> {<CR>}<UP><END><CR>
-au FileType c,cpp,java,css,js inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
+au FileType c,cpp,java,css,javascript inoremap {<CR> {<CR>}<UP><END><CR>
+au FileType c,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 """"
 
 nnoremap <F6> :Tlist<CR>
