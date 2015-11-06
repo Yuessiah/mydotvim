@@ -38,7 +38,7 @@ let g:user_emmet_leader_key='<TAB>'
 """"
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{c,cpp,java,py,html,htmljinja,css,js} :%s/\s\+$//e
+autocmd BufWritePre *.{c,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
 " auto-arrange the whole coding indentation field after reading the file into the buffer
@@ -57,8 +57,8 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 """"
 
 " bracket-completion
-au FileType htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
-au FileType htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
+au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
+au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
 au FileType c,cpp,java,css,javascript inoremap {<CR> {<CR>}<UP><END><CR>
 au FileType c,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 """"
