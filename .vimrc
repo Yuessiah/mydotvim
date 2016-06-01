@@ -38,11 +38,11 @@ let g:user_emmet_leader_key='<TAB>'
 """"
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{c,cpp,java,py,html,css,js} :%s/\s\+$//e
+autocmd BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
 " auto-arrange the whole coding indentation field after reading the file into the buffer
-autocmd BufReadPost *.{c,cpp,java,html} :normal ggVG=
+autocmd BufReadPost *.{h,c,hpp,cpp,java,html} :normal ggVG=
 """"
 
 " open a NERDTree automatically when vim starts up if no files were specified
@@ -59,8 +59,8 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " bracket-completion
 au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType c,cpp,java,css,javascript inoremap {<CR> {<END><CR>}<UP><ESC>f{a<CR>
-au FileType c,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><END><SPACE>}<LEFT><LEFT>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<END><CR>}<UP><ESC>f{a<CR>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><END><SPACE>}<LEFT><LEFT>
 """"
 
 nnoremap <F6> :Tlist<CR>
