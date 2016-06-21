@@ -60,6 +60,7 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<END><CR>}<UP><ESC>A<CR>
+au FileType h,c,hpp,cpp,java,javascript inoremap {; {<END><CR>};<UP><ESC>A<CR>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><END><SPACE>}<LEFT><LEFT>
 """"
 
