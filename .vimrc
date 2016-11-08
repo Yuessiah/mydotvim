@@ -5,7 +5,7 @@ set smarttab
 set smartindent
 set shiftwidth=2 tabstop=2
 set list listchars=tab:\¦\ |
-autocmd FileType css setlocal sw=1 ts=1
+autocmd FileType css setlocal sw=1 ts=1 nonumber
 autocmd FileType python setlocal expandtab sw=4 softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
@@ -53,6 +53,8 @@ let g:user_emmet_leader_key='<TAB>'
 
 " airline settings
 let g:airline_theme='laederon'
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
 """"
 
 " open a NERDTree automatically when vim starts up if no files were specified
@@ -72,17 +74,20 @@ autocmd BufReadPost *.{h,c,hpp,cpp,java,html} :normal ggVG=
 " bracket-completion
 au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
 au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<END><CR>}<UP><ESC>A<CR>
-au FileType h,c,hpp,cpp,java,javascript inoremap {; {<END><CR>};<UP><ESC>A<CR>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><END><SPACE>}<LEFT><LEFT>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<CR><END><CR>}<UP><END>
+au FileType h,c,hpp,cpp,java,javascript inoremap {; {<CR><END><CR>};<UP><END>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap {<END> {<SPACE><END><SPACE>}
+cnoremap \( \(\)<LEFT><LEFT>
 """"
 
 " hot key
+inoremap jk <ESC>
+nnoremap <SPACE> :w<CR>
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <F6> :Tlist<CR>
 map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python nmap <buffer> <F8> :call Flake8()<CR>
-au FileType css set nonumber
 """"
