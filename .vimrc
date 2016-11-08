@@ -16,12 +16,24 @@ set background=dark             " Use colours that work well on a dark backgroun
 set showmode                    " show the current mode
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
-filetype plugin indent on
 
-""""""""""""""""""""""""""""""""
-" Magic that can't be removed. "
-""""""""""""""""""""""""""""""""
-execute pathogen#infect('~/.vim/bundle/{}')
+" set the runtime path to include Vundle and initialize
+set nocompatible                " be iMproved, required
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nvie/vim-flake8'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'tpope/vim-sensible'
+call vundle#end()
+filetype plugin indent on
 
 " some solarized theme settings
 set t_Co=256
