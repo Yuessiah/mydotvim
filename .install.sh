@@ -16,4 +16,3 @@ ln .vimrc ~
 
 # Vundle plugin installation command
 vim +PluginInstall +qall
-rm -f install.sh
