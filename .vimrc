@@ -14,11 +14,11 @@ set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
 set showmode                    " show the current mode
+set nocompatible                " be iMproved
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 
 " set the runtime path to include Vundle and initialize
-set nocompatible                " be iMproved, required
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
