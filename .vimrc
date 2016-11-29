@@ -78,12 +78,12 @@ au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<CR><END><CR>}<UP><E
 au FileType h,c,hpp,cpp,java,javascript inoremap {; {<CR><END><CR>};<UP><END>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap {<END> {<SPACE><END><SPACE>}
-cnoremap \( \(\)<LEFT><LEFT>
 """"
 
 " hot key
 inoremap jk <ESC>
-nnoremap <SPACE> :w<CR>
+cnoremap jk <ESC>
+nnoremap `` ``zz
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <F6> :Tlist<CR>
