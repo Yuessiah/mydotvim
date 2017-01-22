@@ -68,16 +68,17 @@ autocmd BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
 " auto-arrange the whole coding indentation field after reading the file into the buffer
-autocmd BufReadPost *.{h,c,hpp,cpp,java,html} :normal ggVG=
+autocmd BufReadPost *.{h,c,hpp,cpp,java} :normal gg=G
 """"
 
 " bracket-completion
-au FileType html,htmljinja inoremap {% {%  %}<LEFT><LEFT><LEFT>
-au FileType html,htmljinja inoremap {{ {{  }}<LEFT><LEFT><LEFT>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap {<CR> {<CR><END><CR>}<UP><END>
-au FileType h,c,hpp,cpp,java,javascript inoremap {; {<CR><END><CR>};<UP><END>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap {<END> {<SPACE><END><SPACE>}
+au FileType html,htmljinja inoremap <buffer> {% {%  %}<LEFT><LEFT><LEFT>
+au FileType html,htmljinja inoremap <buffer> {{ {{  }}<LEFT><LEFT><LEFT>
+au FileType javascript inoremap <buffer> ({<CR> ({<CR><END><CR>})<UP><END>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<CR> {<CR><END><CR>}<UP><END>
+au FileType h,c,hpp,cpp,java,javascript inoremap <buffer> {; {<CR><END><CR>};<UP><END>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
+au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><END><SPACE>}
 """"
 
 " hot key
