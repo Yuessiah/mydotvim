@@ -33,6 +33,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'nvie/vim-flake8'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'tpope/vim-sensible'
+Plugin 'posva/vim-vue'
+Plugin 'pangloss/vim-javascript'
 call vundle#end()
 filetype plugin indent on
 """"
@@ -45,16 +47,20 @@ let g:solarized_visibility="low"
 colorscheme solarized
 """"
 
+" airline settings
+let g:airline_theme='laederon'
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+""""
+
 " emmet settings
 let g:user_emmet_install_global=0
 autocmd FileType html,css,htmljinja EmmetInstall
 let g:user_emmet_leader_key='<TAB>'
 """"
 
-" airline settings
-let g:airline_theme='laederon'
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
+" vim-javascript syntax settings
+let g:javascript_plugin_jsdoc=1
 """"
 
 " open a NERDTree automatically when vim starts up if no files were specified
