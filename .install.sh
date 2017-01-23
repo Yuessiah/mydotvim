@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd ~
-rm -rf .vim/
-mv mydotvim/ .vim/
+rm -rf ~/.vim/
+BASE=$(dirname "$0")
+mv $BASE ~/.vim/
 
 sudo apt-get install ctags
 
-cd .vim/
+cd ~/.vim/
 git submodule init bundle/Vundle.vim/
 git submodule update bundle/Vundle.vim/
 
