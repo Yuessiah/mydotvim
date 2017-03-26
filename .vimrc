@@ -35,6 +35,7 @@ Plugin 'mitsuhiko/vim-jinja'
 Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue'
 Plugin 'pangloss/vim-javascript'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 filetype plugin indent on
 """"
@@ -91,6 +92,7 @@ au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><EN
 inoremap jk <ESC>
 cnoremap jk <ESC>
 nnoremap `` ``zz
+nnoremap <SPACE> :w<CR>
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <F6> :Tlist<CR>
