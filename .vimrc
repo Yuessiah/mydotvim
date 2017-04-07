@@ -93,7 +93,7 @@ inoremap jk <ESC>
 cnoremap jk <ESC>
 nnoremap `` ``zz
 nmap <SPACE> :w<CR>
-nmap <C-y> "+y
+vmap <C-y> "+y
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <F6> :Tlist<CR>
