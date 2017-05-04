@@ -56,7 +56,7 @@ let g:airline_right_sep = '«'
 
 " emmet settings
 let g:user_emmet_install_global=0
-autocmd FileType html,css,htmljinja EmmetInstall
+autocmd FileType html,css,htmljinja,php EmmetInstall
 let g:user_emmet_leader_key='<TAB>'
 """"
 
