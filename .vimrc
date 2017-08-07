@@ -91,9 +91,10 @@ au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><EN
 inoremap jk <ESC>
 cnoremap jk <ESC>
 nnoremap `` ``zz
-nmap <SPACE> :w<CR>
-vmap <C-y> "+y
-nmap <C-p> "+P
+nnoremap <SPACE> :w<CR>
+vnoremap <C-y> "+y
+nnoremap <C-p> "+P
+vnoremap <C-p> "+P
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <F6> :Tlist<CR>
