@@ -84,7 +84,6 @@ au FileType html,htmljinja inoremap <buffer> {{ {{  }}<LEFT><LEFT><LEFT>
 au FileType javascript inoremap <buffer> ({<CR> ({<CR><END><CR>})<UP><END>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<CR> {<CR><END><CR>}<UP><END>
 au FileType h,c,hpp,cpp,java,javascript inoremap <buffer> {; {<CR><END><CR>};<UP><END>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<SPACE> {<SPACE><SPACE>}<LEFT><LEFT>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><END><SPACE><SPACE>}<LEFT><LEFT>
 """"
 
