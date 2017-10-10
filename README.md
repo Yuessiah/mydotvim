@@ -6,5 +6,5 @@
 ### Installation
 ```bash
 $ git clone https://github.com/yuessiah/mydotvim
-$ mydotvim/.install.sh
+$ sudo mydotvim/.install.sh
 ```
