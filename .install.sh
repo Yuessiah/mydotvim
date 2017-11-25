@@ -4,7 +4,7 @@ rm -rf ~/.vim/
 BASE=$(dirname "$0")
 mv $BASE ~/.vim/
 
-sudo apt-get install ctags
+apt-get install ctags
 
 cd ~/.vim/bundle/
 git submodule init Vundle.vim/
