@@ -1,4 +1,5 @@
 " Setting some decent VIM settings for programming
+set magic                       " A believing heart is your magic.
 set mouse=n
 set number
 set shiftwidth=2 tabstop=2
@@ -62,9 +63,9 @@ let g:javascript_plugin_jsdoc=1
 """"
 
 " open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+au StdinReadPre * let s:std_in=1
+au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 """"
 
 " ycm settings
@@ -74,12 +75,12 @@ let g:ycm_goto_buffer_command = 'horizontal-split'
 """"
 
 " remove trailing whitespace when type :w on normal mode
-autocmd BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
+au BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
 " indentation of specific files settings
-autocmd FileType css setlocal sw=1 ts=1 nonumber
-autocmd FileType python setlocal expandtab sw=4 softtabstop=4
+au FileType css setlocal sw=1 ts=1 nonumber
+au FileType python setlocal expandtab sw=4 softtabstop=4
 """"
 
 " bracket-completion
@@ -101,11 +102,11 @@ nnoremap <C-p> "+P
 vnoremap <C-p> "+P
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
-nnoremap <F4> :set hlsearch! hlsearch?<CR>
-nnoremap <F6> :Tlist<CR>
 nnoremap <leader>df :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
-map <silent> <leader>p :setlocal nopaste!<CR>
+noremap  <silent> <leader>p :setlocal nopaste!<CR>
+nnoremap <F4> :set hlsearch! hlsearch?<CR>
+nnoremap <F6> :Tlist<CR>
+au FileType python nnoremap <buffer> <F8> :call Flake8()<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
-au FileType python nmap <buffer> <F8> :call Flake8()<CR>
 """"
