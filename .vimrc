@@ -1,10 +1,11 @@
 " Setting some decent VIM settings for programming
 set mouse=n
 set number
+set shiftwidth=2 tabstop=2
 set smarttab
 set smartindent
-set shiftwidth=2 tabstop=2
 set autoindent                  " set auto-indenting on for programming
+set cursorcolumn                " enhance the column position of cursor.
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
 set ruler                       " show the cursor position all the time
@@ -31,6 +32,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'posva/vim-vue'
 Plugin 'pangloss/vim-javascript'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 """"
