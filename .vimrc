@@ -4,9 +4,6 @@ set number
 set smarttab
 set smartindent
 set shiftwidth=2 tabstop=2
-set list listchars=tab:\¦\ |
-autocmd FileType css setlocal sw=1 ts=1 nonumber
-autocmd FileType python setlocal expandtab sw=4 softtabstop=4
 set autoindent                  " set auto-indenting on for programming
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
@@ -22,10 +19,8 @@ syntax enable                   " turn syntax highlighting on by default
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5.vim'
-Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
@@ -70,12 +65,19 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 """"
 
+" ycm settings
+let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_goto_buffer_command = 'horizontal-split'
+""""
+
 " remove trailing whitespace when type :w on normal mode
 autocmd BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 """"
 
-" auto-arrange the whole coding indentation field after reading the file into the buffer
-autocmd BufReadPost *.{h,c,hpp,cpp,java} :normal gg=G
+" indentation of specific files settings
+autocmd FileType css setlocal sw=1 ts=1 nonumber
+autocmd FileType python setlocal expandtab sw=4 softtabstop=4
 """"
 
 " bracket-completion
@@ -97,7 +99,10 @@ nnoremap <C-p> "+P
 vnoremap <C-p> "+P
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F6> :Tlist<CR>
+nnoremap <leader>df :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>dc :YcmCompleter GoToDeclaration<CR>
 map <silent> <leader>p :setlocal nopaste!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 au FileType python nmap <buffer> <F8> :call Flake8()<CR>

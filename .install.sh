@@ -6,13 +6,18 @@ mv $BASE ~/.vim/
 
 sudo apt-get install ctags
 
-cd ~/.vim/
-git submodule init bundle/Vundle.vim/
-git submodule update bundle/Vundle.vim/
+cd ~/.vim/bundle/
+git submodule init Vundle.vim/
+git submodule update Vundle.vim/
+git submodule init YouCompleteMe/
+git submodule update YouCompleteMe/
+cd YouCompleteMe/
+git submodule update --init --recursive
+./install.py --clang-completer
 
 # Hard-link the ~/.vimrc from mydotvim's .vimrc
 rm -f ~/.vimrc
-ln .vimrc ~
+ln ~/.vim/.vimrc ~
 
 # Vundle plugin installation command
 vim +PluginInstall +qall
