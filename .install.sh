@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ $(whoami) != "root" ]; then
+	echo "Execute .install.sh with sudo."
+	exit 1
+fi
+
+if test -d .git; then
+	echo "Execute .install.sh in the top-level directory."
+	exit 1
+fi
+
 rm -rf ~/.vim/
 BASE=$(dirname "$0")
 mv $BASE ~/.vim/
