@@ -34,6 +34,7 @@ Plugin 'posva/vim-vue'
 Plugin 'pangloss/vim-javascript'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'junegunn/vim-easy-align'
 call vundle#end()
 filetype plugin indent on
 """"
@@ -100,6 +101,8 @@ nnoremap <SPACE> :w<CR>
 vnoremap <C-y> "+y
 nnoremap <C-p> "+P
 vnoremap <C-p> "+P
+xmap     <leader>ag <Plug>(EasyAlign)
+nmap     <leader>ag <Plug>(EasyAlign)
 nnoremap <leader>ev :vsplit ~/.vimrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <leader>df :YcmCompleter GoToDefinitionElseDeclaration<CR>
