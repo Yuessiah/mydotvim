@@ -16,6 +16,7 @@ set showmode                    " show the current mode
 set nocompatible                " be iMproved
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
+""""
 
 " set the runtime path to include Vundle and initialize
 filetype off
@@ -91,6 +92,14 @@ au FileType javascript inoremap <buffer> ({<CR> ({<CR><END><CR>})<UP><END>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<CR> {<CR><END><CR>}<UP><END>
 au FileType h,c,hpp,cpp,java,javascript inoremap <buffer> {; {<CR><END><CR>};<UP><END>
 au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><END><SPACE><SPACE>}<LEFT><LEFT>
+function! MultiLineBraceCompletion()
+	let [l:H, l:L] = [line('v'), line('.')]
+	if(l:H > l:L)
+		swap(l:H, l:L)
+	endif
+	echo [l:H, l:L]
+	call feedkeys("\<ESC>" . string(l:L) . "ggo}\<ESC>" . string(l:H) . "ggA {\<ESC>=G")
+endfunction
 """"
 
 " hot key
@@ -98,6 +107,7 @@ inoremap jk <ESC>
 cnoremap jk <ESC>
 nnoremap `` ``zz
 nnoremap <SPACE> :w<CR>
+vnoremap <expr> { MultiLineBraceCompletion()
 vnoremap <C-y> "+y
 nnoremap <C-p> "+P
 vnoremap <C-p> "+P
