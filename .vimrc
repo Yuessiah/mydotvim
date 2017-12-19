@@ -74,6 +74,7 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType 
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_goto_buffer_command = 'horizontal-split'
+let g:ycm_autoclose_preview_window_after_insertion = 1
 """"
 
 " remove trailing whitespace when type :w on normal mode
@@ -95,11 +96,14 @@ au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><EN
 function! MultiLineBraceCompletion()
 	let [l:H, l:L] = [line('v'), line('.')]
 	if(l:H > l:L)
-		swap(l:H, l:L)
+		let l:T = l:H
+		let l:H = l:L
+		let l:L = l:T
 	endif
 	echo [l:H, l:L]
 	call feedkeys("\<ESC>" . string(l:L) . "ggo}\<ESC>" . string(l:H) . "ggA {\<ESC>=G")
 endfunction
+au FileType h,c,hpp,cpp,java,css,javascript vnoremap <expr> { MultiLineBraceCompletion()
 """"
 
 " hot key
@@ -107,7 +111,6 @@ inoremap jk <ESC>
 cnoremap jk <ESC>
 nnoremap `` ``zz
 nnoremap <SPACE> :w<CR>
-vnoremap <expr> { MultiLineBraceCompletion()
 vnoremap <C-y> "+y
 nnoremap <C-p> "+P
 vnoremap <C-p> "+P
