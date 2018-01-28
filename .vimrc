@@ -1,5 +1,6 @@
 " Setting some decent VIM settings for programming
 set magic                       " A believing heart is your magic.
+set encoding=utf-8
 set mouse=n
 set number
 set shiftwidth=2 tabstop=2
