@@ -85,15 +85,16 @@ au BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 " indentation of specific files settings
 au FileType css setlocal sw=1 ts=1 nonumber
 au FileType python setlocal expandtab sw=4 softtabstop=4
+au FileType haskell setlocal expandtab sw=2 softtabstop=2
 """"
 
 " bracket-completion
 au FileType html,htmljinja inoremap <buffer> {% {%  %}<LEFT><LEFT><LEFT>
 au FileType html,htmljinja inoremap <buffer> {{ {{  }}<LEFT><LEFT><LEFT>
 au FileType javascript inoremap <buffer> ({<CR> ({<CR><END><CR>})<UP><END>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<CR> {<CR><END><CR>}<UP><END>
+inoremap <buffer> {<CR> {<CR><END><CR>}<UP><END>
+inoremap <buffer> {<END> {<SPACE><END><SPACE><SPACE>}<LEFT><LEFT>
 au FileType h,c,hpp,cpp,java,javascript inoremap <buffer> {; {<CR><END><CR>};<UP><END>
-au FileType h,c,hpp,cpp,java,css,javascript inoremap <buffer> {<END> {<SPACE><END><SPACE><SPACE>}<LEFT><LEFT>
 function! MultiLineBraceCompletion()
 	let [l:H, l:L] = [line('v'), line('.')]
 	if(l:H > l:L)
