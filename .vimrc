@@ -3,7 +3,8 @@ set magic                       " A believing heart is your magic.
 set encoding=utf-8
 set mouse=n
 set number
-set shiftwidth=2 tabstop=2
+set expandtab
+set shiftwidth=2 tabstop=2 softtabstop=2
 set smarttab
 set smartindent
 set autoindent                  " set auto-indenting on for programming
@@ -84,8 +85,7 @@ au BufWritePre *.{h,c,hpp,cpp,java,py,html,css,js} :%s/\s\+$//e
 
 " indentation of specific files settings
 au FileType css setlocal sw=1 ts=1 nonumber
-au FileType python setlocal expandtab sw=4 softtabstop=4
-au FileType haskell setlocal expandtab sw=2 softtabstop=2
+au FileType python setlocal sw=4 softtabstop=4
 """"
 
 " bracket-completion
