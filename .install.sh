@@ -15,6 +15,7 @@ BASE=$(dirname "$0")
 mv $BASE ~/.vim/
 
 apt-get install ctags
+apt-get install cmake
 
 # Hard-link the ~/.vimrc from mydotvim's .vimrc
 rm -f ~/.vimrc
