@@ -1,7 +1,7 @@
 " Setting some decent VIM settings for programming
 set magic                       " A believing heart is your magic.
 set encoding=utf-8
-set mouse=n
+set mouse=a
 set number
 set expandtab
 set shiftwidth=2 tabstop=2 softtabstop=2
@@ -11,11 +11,10 @@ set autoindent                  " set auto-indenting on for programming
 set cursorcolumn                " enhance the column position of cursor.
 set showcmd                     " show the typing command
 set showmatch                   " automatically show matching brackets.
+set showmode                    " show the current mode
 set ruler                       " show the cursor position all the time
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set background=dark             " Use colours that work well on a dark background (Console is usually black)
-set showmode                    " show the current mode
-set nocompatible                " be iMproved
 let mapleader="9"               " the <leader> key.
 syntax enable                   " turn syntax highlighting on by default
 """"
@@ -73,7 +72,7 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType 
 """"
 
 " ycm settings
-let g:ycm_server_python_interpreter='/usr/bin/python'
+let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_goto_buffer_command = 'horizontal-split'
 let g:ycm_autoclose_preview_window_after_insertion = 1
