@@ -16,6 +16,8 @@ mv $BASE ~/.vim/
 
 apt-get install ctags
 apt-get install cmake
+apt-get install nodejs
+apt-get install npm
 
 # Hard-link the ~/.vimrc from mydotvim's .vimrc
 rm -f ~/.vimrc
@@ -26,7 +28,7 @@ cd ~/.vim/bundle/YouCompleteMe/
 git submodule update --init --recursive
 git submodule foreach --recursive
 git checkout --
-./install.py --clang-completer
+./install.py --clang-completer --js-completer
 git submodule update
 
 # Vundle plugin installation command
