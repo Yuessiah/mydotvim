@@ -24,6 +24,8 @@ ln ~/.vim/.vimrc ~
 # Install the modules
 cd ~/.vim/bundle/YouCompleteMe/
 git submodule update --init --recursive
+git submodule foreach --recursive
+git checkout --
 ./install.py --clang-completer
 git submodule update
 
